@@ -1,0 +1,20 @@
+# search across multiple files easily with grep
+# This searches recursively in all .txt files under the #folder. 
+# If you prefix your commands with # Command:, 
+# it’s even easier to filter specific blocks.
+
+# Command: grep
+# -e: 
+grep -rnw ./linux-commands/ -e "chmod"
+
+
+# or get fancy with find + grep:
+# Command: find
+find . -name "*.txt" -exec grep -H "chmod" {} \;
+
+# Command: find
+# locate server module inside python3.x installation path
+find /usr/lib/python3.11/ -name server.py
+
+
+

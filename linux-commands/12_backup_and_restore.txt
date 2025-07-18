@@ -1,0 +1,5 @@
+# Command: rsync
+sudo apt install rsync -y
+
+# backup to remote server
+rsync -av /path/to/mydirectory user@backup_server:/path/to/backup/directory

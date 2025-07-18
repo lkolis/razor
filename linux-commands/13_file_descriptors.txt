@@ -1,0 +1,6 @@
+# stdin: 0 
+# stdout: 1
+# stderr: 2 
+
+# redirection
+some commands 2>/dev/null

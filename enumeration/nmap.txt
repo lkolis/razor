@@ -1,0 +1,15 @@
+# Command: nmap -sC -sV
+
+# classic outputs
+
+# SMB
+445/tcp  open  microsoft-ds Windows Server 2019 Standard 17763 microsoft-ds
+# in order to enumarate the SMB share we use smbclient
+# Command: smbclient
+smbclient -L {target_IP}
+
+# access shares
+smbclient \\\\{target_IP}\\{share_name}$
+
+# Command: mssqlclient
+python3 mssqlclient.py {SMB_share}/sql_svc@{TARGET_IP} -windows-auth 

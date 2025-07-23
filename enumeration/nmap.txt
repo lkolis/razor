@@ -5,10 +5,11 @@
 # SMB
 445/tcp  open  microsoft-ds Windows Server 2019 Standard 17763 microsoft-ds
 # in order to enumarate the SMB share we use smbclient
+# hence: to list all available shares
 # Command: smbclient
-smbclient -L {target_IP}
+smbclient -L {target_IP} -U {user_name}
 
-# access shares
+# access a specific share from the above listed
 smbclient \\\\{target_IP}\\{share_name}$
 
 # Command: mssqlclient

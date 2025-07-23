@@ -1,3 +1,13 @@
 # Command: Get-WmiObject
 # to find info about the OS
 Get-WmiObject -Class win32_OperatingSystem | select Version,BuildNumber
+
+# Command: dir
+# /a: shows all files regardless of attributes (e.g. hidden, read-only, system)
+dir c:\ /a
+
+# Command: tree
+tree "c:\Program Files (x86)\VMware"
+
+# Command: icacls - Integrity Control Access Control List
+icacls c:\users

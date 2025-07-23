@@ -1,0 +1,12 @@
+# Command: apt
+
+sudo apt update
+apt search <package-name>
+apt show <package-name>
+sudo apt install <package-name>
+
+# verify installation
+<package-name> --version
+
+# upgrade all packages
+sudo apt upgrade

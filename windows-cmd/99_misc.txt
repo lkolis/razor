@@ -2,6 +2,11 @@
 # to find info about the OS
 Get-WmiObject -Class win32_OperatingSystem | select Version,BuildNumber
 
+# Command: Get-Services
+# Output non-standard services. Non-standard service are NOT installed under 'C:\Windows' path
+Get-WmiObject -Class Win32_Service | Select-Object Name, DisplayName, PathName |
+>> Where-Object { $_.PathName -notlike "C:\Windows\*" }
+
 # Command: dir
 # /a: shows all files regardless of attributes (e.g. hidden, read-only, system)
 dir c:\ /a

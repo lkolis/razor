@@ -1,6 +1,9 @@
 # Command: grep
 cat /etc/passwd | grep "/bin/bash"
 
+# lines that end with yes
+grep 'yes$' filename.txt
+
 # exclude all users who have disabled the standard shell 
 # with the name "/bin/false" or "/usr/bin/nologin".
 cat /etc/passwd | grep -v "false\|nologin"

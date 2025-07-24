@@ -8,5 +8,7 @@ sc stop wuauserv
 # examine service permission
 sc sdshow wuauserv
 
+# service permissions with Powershell
+Get-ACL -Path HKLM:\System\CurrentControlSet\Services\wuauserv | Format-List
 
 

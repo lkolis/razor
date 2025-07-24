@@ -1,0 +1,21 @@
+# Command: Get-Alias
+# view all available aliases
+Get-Alias
+
+# Command: New-Alias
+New-Alias -Name "Show-Files" Get-ChildItem
+
+
+# Command: Get-ExecutionPolicy
+# current execution policy for all scopes
+Get-ExecutionPolicy -List
+
+# change execution policy for the current process (session)
+Set-ExecutionPolicy Bypass -Scope Process
+
+# Command: wmic > Windows Managemenet Instrumentation Command-Line Interface
+# info about the OS
+wmic os list brief
+
+# info about the OS version 2
+Get-WmiObject -Class Win32_OperatingSystem | select SystemDirectory,BuildNumber,SerialNumber,Version | ft

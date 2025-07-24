@@ -1,1 +1,3 @@
+https://www.cloudflare.com/learning/security/glossary/what-is-lateral-movement/
 https://www.cloudflare.com/learning/network-layer/what-is-a-computer-port/
+https://www.cloudflare.com/learning/security/glossary/what-is-endpoint/

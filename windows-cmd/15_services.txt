@@ -1,0 +1,12 @@
+# Command sc
+# qc: query the service. here: windows update
+sc qc wuauserv
+
+# start/stop
+sc stop wuauserv
+
+# examine service permission
+sc sdshow wuauserv
+
+
+

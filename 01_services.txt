@@ -1,0 +1,8 @@
+# Command: sc
+# Configure and manage services
+
+# query the service of windows update agent
+sc qc wuauserv 
+
+# start/stop services
+sc stop wuauserv

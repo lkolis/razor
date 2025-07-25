@@ -19,3 +19,18 @@ wmic os list brief
 
 # info about the OS version 2
 Get-WmiObject -Class Win32_OperatingSystem | select SystemDirectory,BuildNumber,SerialNumber,Version | ft
+
+# Command: Invoke-WmiMethod
+# rename file
+Invoke-WmiMethod -Path "CIM_DataFile.Name='C:\users\public\spns.csv'" -Name Rename -ArgumentList "C:\Users\Public\kerberoasted_users.csv"
+
+# Command: search for cmdlet
+Get-Command -Name 'Get-*User*'
+
+# Show all available parameters
+(Get-Command Get-LocalUser).Parameters.Keys
+
+# Select a specific object
+Get-LocalUser -Name "Bob" | Select-Object Name, SID
+
+

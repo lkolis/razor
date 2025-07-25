@@ -1,0 +1,32 @@
+# Operation: Read
+curl http://<SERVER_IP>:<PORT>/api.php/<table_name>/<row>
+
+e.g. curl http://94.237.54.192:41405/api.php/city/london
+
+# Operation: Read
+curl http://<SERVER_IP>:<PORT>/api.php/<table_name>/<row>
+
+e.g. curl http://94.237.54.192:41405/api.php/city/london
+
+# Operation: Read
+curl http://<SERVER_IP>:<PORT>/api.php/<table_name>/<row>
+
+e.g. curl http://94.237.54.192:41405/api.php/city/london
+
+# formated
+curl -s http://<SERVER_IP>:<PORT>/api.php/city/london | jq
+
+# Operation: Create
+# METHOD: POST
+
+curl -X POST http://<SERVER_IP>:<PORT>/api.php/city/ -d '{"city_name":"HTB_City", "country_name":"HTB"}' -H 'Content-Type: application/json'
+
+# Operation: Update
+# Method: PUT
+curl -X PUT http://<SERVER_IP>:<PORT>/api.php/city/london -d '{"city_name":"New_HTB_City", "country_name":"HTB"}' -H 'Content-Type: application/json'
+
+# Method: PATCH is used to update partially
+
+# Operation: Delete
+# Method: Delete
+curl -X DELETE http://<SERVER_IP>:<PORT>/api.php/city/New_HTB_City

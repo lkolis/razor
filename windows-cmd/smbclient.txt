@@ -1,9 +1,0 @@
-# Command: smbclient
-# List available shares
-smbclient -L SERVER_IP -U htb-student
-
-# connect to a specific share
-smbclient '\\SERVER_IP\SHARE_NAME' -U htb-student
-
-
-

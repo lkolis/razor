@@ -1,0 +1,9 @@
+# install apache on VM with
+sudo apt update && sudo apt -y install apache2
+
+# check Apache status
+sudo systemctl status apache
+
+
+
+

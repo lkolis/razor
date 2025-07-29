@@ -1,0 +1,5 @@
+# List available interfaces
+tcpdump -D
+
+# Listen to an interface
+# tcpdump -i <interface>

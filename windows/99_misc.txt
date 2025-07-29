@@ -15,4 +15,26 @@ dir c:\ /a
 tree "c:\Program Files (x86)\VMware"
 
 # Command: icacls - Integrity Control Access Control List
-icacls c:\users
+icacls c:\users3
+
+# Command: Start-Process
+# su - username
+Start-Process powershell.exe -Credential (Get-Credential)
+
+# Command: Get-Command *user*
+# apropos user
+Get-Command *user*
+
+# Command: Get-Help
+# command --help
+Get-Help Get-LocalUser
+
+# user SID
+wmic useraccount where name='username' get sid
+
+# group SID
+(Get-LocalGroup -Name "HR").SID
+
+# they have 1 digit difference => G_SID-U_SID= 1 only if 
+# you have created the groupd just after the user. RIDs are 
+# created sequentially

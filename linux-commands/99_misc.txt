@@ -1,3 +1,16 @@
+# add to PATH temporarily
+export PATH=$PATH:/usr/sbin
+
+# add to PATH permanently
+echo 'export PATH=$PATH:/usr/sbin' >> ~/.bashrc
+
+# then reload the config
+source ~/.bashrc
+
+# test
+john --test
+
+
 # search across multiple files easily with grep
 # This searches recursively in all .txt files under the #folder. 
 # If you prefix your commands with # Command:, 

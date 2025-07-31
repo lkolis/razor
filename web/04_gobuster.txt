@@ -1,0 +1,7 @@
+# directory enumeration
+gobuster -u <URL> -w <wordlist_path> dir
+
+
+################# OPTIONS ###################
+# -u: url
+# -w: wordlist

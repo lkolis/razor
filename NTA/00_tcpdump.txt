@@ -2,4 +2,61 @@
 tcpdump -D
 
 # Listen to an interface
-# tcpdump -i <interface>
+# tcpdump -i <interface> (interface can be name or number)
+sudo tcpdump -i eth0
+sudo tcpdump -i 1
+
+#  -n: disable DNS resolution
+# -nn: disable DNS resolution and port resolution
+#  -e: show ethernet header
+#  -X: Include ASCII and Hex Output
+#  -w: write capture to a file
+#  -v: verbose output
+#  -c: count specific number of packets
+#  -S: display absolute TCP sequence numbers
+#  -l: to see the data while capturing it. e.g. tcpdump -l | tee dat
+#  -l will tell tcpdump to output packets in a different mode. L will line buffer instead of pooling and pushing in chunks. It allows us to send the output directly to another tool such as grep using a pipe |
+sudo tcpdump -Ar http.cap -l | grep 'mailto:*'
+
+
+# to read file you should use tcpdump
+tcpdump -r outpout.pcap | less
+
+
+##################### FILTERING ###############################
+
+# host 	host will filter visible traffic to show anything involving the designated host. Bi-directional
+# src / dest 	src and dest are modifiers. We can use them to designate a source or destination host or port.
+# net 	net will show us any traffic sourcing from or destined to the network designated. It uses / notation.
+# proto 	will filter for a specific protocol type. (ether, TCP, UDP, and ICMP as examples)
+# port 	port is bi-directional. It will show any traffic with the specified port as the source or destination.
+# portrange 	portrange allows us to specify a range of ports. (0-1024)
+# less / greater "< >" 	less and greater can be used to look for a packet or protocol option of a specific size.
+# and / && 	and && can be used to concatenate two different filters together. for example, src host AND port.
+# or 	or allows for a match on either of two conditions. It does not have to meet both. It can be tricky.
+# not 	not is a modifier saying anything but x. For example, not UDP.
+
+#######################################################33#######
+
+# search for HTTP packets  (port 80), HTTPS (443)
+# FTP (20, 21), SSH (22), TELNET (23)
+# echo (7)
+# DNS (UDP: 53) 
+# RDP (3389)
+sudo tcpdump -i 1 not icmp
+
+# capture on tcp syn and tcp syn, ack (the 13th octet of the tcp header is related to the tcp flags, hence tcp[13]
+sudo tcpdump -i tun0 host 10.129.166.148 and 'tcp[13] == 2 or tcp[13] == 18' -nnvvc 20'
+
+# grep for SYN flags
+tcpdump -r TCPDump-lab-2.pcap -nc 30 -l | grep -e 'Flags \[S\]'
+
+
+################## MANIPULATING DATA ##############################
+
+# print the timestamp of the first communication with awk (awk -F . -> sets the delimeter to '.')
+tcpdump -r TCPDump-lab-2.pcap -n -l -c 1 | awk -F . '{print $1}'
+
+# print http or https packets with length > 100
+tcpdump -r TCPDump-lab-2.pcap -c 20 -l '(tcp port 80 or tcp port 443) and greater 100' -X 
+

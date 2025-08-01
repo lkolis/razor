@@ -28,4 +28,5 @@
 6667  - IRC            : Botnet control, DoS vulnerabilities
 8000  - Web Servers    : Alternate HTTP port, vulnerable web apps
 10000 - Webmin         : Remote code execution, outdated versions
-
+1723  - PPTP VPN (TCP)
+500   - IKEv1/IKEv2 VPN (UDP)

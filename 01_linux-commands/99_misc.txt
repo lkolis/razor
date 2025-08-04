@@ -1,3 +1,13 @@
+# copy from vim -> to outside
+# 1. Press v or V or Ctrl+V
+# 2. Select text
+# 3. "+y
+"+: represents the system register
+# 4. Paste in terminal
+ 
+# runs the command as root
+sudo sh -c 'echo "SERVER_IP  academy.htb" >> /etc/hosts'
+
 # add to PATH temporarily
 export PATH=$PATH:/usr/sbin
 

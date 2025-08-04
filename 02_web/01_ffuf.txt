@@ -1,3 +1,7 @@
+#####################################################################
+####################### BASIC FUZZING ###############################
+#####################################################################
+
 # The main two options are:
 # -w for wordlists
 # -u for the URL
@@ -14,12 +18,15 @@ ffuf -w /home/user/SecLists/Discovery/Web-Content/directory-list-lowercase-2.3-s
 # We can even make it go faster if we are in a hurry 
 # by increasing the number of threads to 200, for example, with -t 200 (could cause DoS)
 
-# index fuzzing
+# extension fuzzing
 ffuf -w /home/user/SecLists/Discovery/Web-Content/web-extensions.txt:FUZZ -u http://94.237.56.217:40050/blog/indexFUZZ
 a
 # page (file) fuzzing (using the extension previously found)
 ffuf -w /home/user/SecLists/Discovery/Web-Content/directory-list-lowercase-2.3-small.txt:FUZZ -u http://94.237.57.115:56906/blog/FUZZ.php -ic
 
+#####################################################################
+####################### JUMP HERE TO BEGIN WITH #####################
+#####################################################################
 
 # recursive fuzzing, for folders and files also so we do the previous altogether
 # -recursion
@@ -30,15 +37,46 @@ ffuf -w /home/user/SecLists/Discovery/Web-Content/directory-list-lowercase-2.3-s
 # -ic: ignore comments
 $ grep Status: to output only the results
 
-ffuf -w /home/user/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt:FUZZ -u http://SERVER_IP:PORT/FUZZ -recursion -recursion-depth 1 -e .php -v 2>/dev/null | grep Status
+ffuf -w /home/user/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt:FUZZ -u http://SERVER_IP:PORT/FUZZ -recursion -recursion-depth 1 -e .php -v -ic 
+
+#####################################################################
+####################### DOMAIN FUZZING ##############################
+#####################################################################
 
 # sub-domain fuzzing
 ffuf -w /home/user/SecLists/Discovery/DNS/subdomains-top1million-5000.txt:FUZZ -u https://FUZZ.inlanefreight.com
 
-# Vhost
-ffuf -w /home/user/SecLists/Discovery/DNS/subdomains-top1million-5000.txt:FUZZ -u http://academy.htb:40050 -H "Host: FUZZ.academy.htb"
+################# Maybe there are sub-domains that that do not have a public DNS record
+################# The key difference between VHosts and sub-domains is that a VHost is basically a 'sub-domain' served on the same server and has the same IP, such that a single IP could be serving two or more different websites.
+
+# Vhost (private sub-domain)
+ffuf -w /home/user/SecLists/Discovery/DNS/subdomains-top1million-5000.txt:FUZZ -u http://<IP>:<PORT> -H "Host: FUZZ.academy.htb"
 
 # but you should apply filtering because it will return all domains as correct results
+# -fs x > filters out responses with size of x
 
 # Filtering
-ffuf -w /home/user/SecLists/Discovery/DNS/subdomains-top1million-5000.txt:FUZZ -u http://academy.htb:40050 -H "Host: FUZZ.academy.htb" -fs 900
+ffuf -w /home/user/SecLists/Discovery/DNS/subdomains-top1million-5000.txt:FUZZ -u http://<IP>:<PORT> -H "Host: FUZZ.academy.htb" -fs 900
+
+
+#####################################################################
+####################### PARAMETER FUZZING ###########################
+#####################################################################
+
+
+# parameter fuzzing - GET requests
+ffuf -w /home/user/SecLists/Discovery/Web-Content/burp-parameter-names.txt:FUZZ -u http://admin.academy.htb:PORT/admin/admin.php?FUZZ=key -fs xxx
+
+
+# parameter fuzzing - POST requests: thery are not appended after the '?' symbol
+# POST requests are passed within in the data field within the HTTP request
+# -d: for the data field
+# -X: POST to send POST requests
+ffuf -w /home/user/SecLists/Discovery/Web-Content/burp-parameter-names.txt:FUZZ -u http://admin.academy.htb:31106/admin/admin.php -X POST -d 'FUZZ=key' -H 'Content-Type: application/x-www-form-urlencoded' -fs 798
+
+#####################################################################
+####################### VALUE FUZZING ###############################
+#####################################################################
+
+ffuf -w ids.txt:FUZZ -u http://admin.academy.htb:PORT/admin/admin.php -X POST -d 'id=FUZZ' -H 'Content-Type: application/x-www-form-urlencoded' -fs xxx
+

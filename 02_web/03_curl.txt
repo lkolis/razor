@@ -1,3 +1,4 @@
 # -I: show response headers
 # -i: show response headers & body
 # -v: show request & response headers & body
+# -Iv: show request & response headers

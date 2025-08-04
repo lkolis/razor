@@ -1,1 +1,9 @@
 # zip2john: convert zip into hash
+zip2john backup.zip > hashes
+
+john -wordlist=/usr/share/wordlists/rockyou.txt hashes
+
+# show the password
+john --show hashes
+
+

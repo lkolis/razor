@@ -1,0 +1,8 @@
+# analyze hash to find out it's type
+hashid <HASH>
+
+# put it in a file named hash
+echo "2cb42f8734ea607eefed3b70af13bbd3" > hash
+
+# crack it with hashcat - using MD5
+hashcat -a 0 -m 0 hash /usr/share/wordlists/rockyou.txt

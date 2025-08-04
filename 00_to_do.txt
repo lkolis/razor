@@ -1,3 +1,6 @@
+read the Trolley Problem paper
+
+https://www.pnas.org/doi/10.1073/pnas.1911517117
 analysis in practice (NTA)
 termshark tool
 finish windows module

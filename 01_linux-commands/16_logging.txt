@@ -1,0 +1,6 @@
+# like screen recording but for terminal
+# --no-escape: avoids ANSI escape sequences (so the output is more readable)
+script --no-escape clean_output.txt
+
+# exiting 
+exit

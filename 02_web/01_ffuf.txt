@@ -1,28 +1,36 @@
 # The main two options are:
 # -w for wordlists
 # -u for the URL
-# get rid of copyright comments with: -ic
+# get rid of copyright comments with: -ic=ignore comments
+# these comments reside inside at the beginning of the wordlist file
 
 ffuf -w /path/to/wordlist -u <URL> -ic
 
-# e.g.
+
+# directory fuzzing
 ffuf -w /home/user/SecLists/Discovery/Web-Content/directory-list-lowercase-2.3-small.txt:FUZZ -u http://94.237.56.217:40050/FUZZ -ic
 
+
 # We can even make it go faster if we are in a hurry 
-# by increasing the number of threads to 200, for example, with -t 200
+# by increasing the number of threads to 200, for example, with -t 200 (could cause DoS)
 
 # index fuzzing
 ffuf -w /home/user/SecLists/Discovery/Web-Content/web-extensions.txt:FUZZ -u http://94.237.56.217:40050/blog/indexFUZZ
+a
+# page (file) fuzzing (using the extension previously found)
+ffuf -w /home/user/SecLists/Discovery/Web-Content/directory-list-lowercase-2.3-small.txt:FUZZ -u http://94.237.57.115:56906/blog/FUZZ.php -ic
 
 
-# recursive fuzzing, for folders and files also
+# recursive fuzzing, for folders and files also so we do the previous altogether
 # -recursion
 # -recursion-depth x
 # and to specify the extension
 # -e .php
 # -v: to output the full URLs
+# -ic: ignore comments
+$ grep Status: to output only the results
 
-ffuf -w /home/user/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt:FUZZ -u http://SERVER_IP:PORT/FUZZ -recursion -recursion-depth 1 -e .php -v
+ffuf -w /home/user/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt:FUZZ -u http://SERVER_IP:PORT/FUZZ -recursion -recursion-depth 1 -e .php -v 2>/dev/null | grep Status
 
 # sub-domain fuzzing
 ffuf -w /home/user/SecLists/Discovery/DNS/subdomains-top1million-5000.txt:FUZZ -u https://FUZZ.inlanefreight.com

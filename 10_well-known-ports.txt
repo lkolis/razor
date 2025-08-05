@@ -1,0 +1,32 @@
+# Common TCP Ports for Penetration Testing
+21   - FTP            : Cleartext credentials, anonymous access, directory traversal
+22   - SSH            : Brute-force, outdated versions, weak configurations
+23   - Telnet         : Unencrypted communication, outdated service
+25   - SMTP           : Open relay, spoofing, enumeration
+53   - DNS            : Zone transfers, DNS poisoning
+80   - HTTP           : Web app vulnerabilities (XSS, SQLi, LFI, etc.)
+110  - POP3           : Cleartext credentials, buffer overflows
+135  - RPC            : DCOM vulnerabilities, lateral movement
+139  - NetBIOS        : File sharing, enumeration, SMB vulnerabilities
+143  - IMAP           : Cleartext credentials, buffer overflows
+443  - HTTPS          : SSL/TLS misconfigurations, web app vulnerabilities
+445  - SMB            : EternalBlue, file sharing, remote code execution
+3306 - MySQL          : SQL injection, weak authentication
+3389 - RDP            : Brute-force, credential reuse, remote access
+5900 - VNC            : Unauthenticated access, weak passwords
+8080 - HTTP Proxy     : Web app vulnerabilities, proxy misconfigurations
+8443 - HTTPS Alt      : SSL/TLS issues, web app vulnerabilities
+
+# Other Noteworthy Ports
+69    - TFTP           : No authentication, file transfer abuse
+161   - SNMP           : Info disclosure, weak community strings
+389   - LDAP           : Enumeration, injection attacks
+636   - LDAPS          : SSL/TLS issues, enumeration
+1433  - MSSQL          : SQL injection, weak authentication
+1521  - Oracle DB      : SQL injection, default credentials
+5000  - UPnP           : Remote code execution, info disclosure
+6667  - IRC            : Botnet control, DoS vulnerabilities
+8000  - Web Servers    : Alternate HTTP port, vulnerable web apps
+10000 - Webmin         : Remote code execution, outdated versions
+1723  - PPTP VPN (TCP)
+500   - IKEv1/IKEv2 VPN (UDP)

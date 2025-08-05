@@ -1,0 +1,26 @@
+# Command: top(table of processes) > get information about running processes, dynamic,real-time
+top 
+
+# Command: ps(process status) > display active processe - produces a static snapshot
+ps aux
+
+# Command: uname -a > get information about the system
+uname -a
+
+# Command: stat > get information about a file
+stat <file.txt>
+
+# Command: df > get information about the filesystem
+df -Th
+# T: shows the filesystem type
+# h: human readable form
+
+# Command: xfs_bmap > get block information about a file
+zfs_bmap <file.txt>
+
+# Command: env > display all environment variables running on the system
+# Command: export > export environment variables
+# Command: printenv > print a particular environment variable to the console
+# Command: source > execute commands stored in a file from within the current shell or refresh environment variables
+
+

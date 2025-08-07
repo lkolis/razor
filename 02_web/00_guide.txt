@@ -1,0 +1,3 @@
+Step-1: nmap scanning
+Step-2: fuzzing
+Step-3: check for exploits

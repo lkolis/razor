@@ -1,5 +1,6 @@
 # Command: nmap -sC -sV
-
+# Command: nmap -sCV
+# -T0 (paranoid) to -T5 (insane)
 # classic outputs
 
 # SMB

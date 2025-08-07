@@ -1,7 +1,7 @@
-# directory enumeration
-gobuster -u <URL> -w <wordlist_path> dir
-
-
 ################# OPTIONS ###################
 # -u: url
 # -w: wordlist
+#  dir: to specify Gobuster we want to perform dir busting specifically
+# -x: extension
+
+gobuster -u <IP> -w <wordlist_past> dir -x php -t 200

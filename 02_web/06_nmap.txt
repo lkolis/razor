@@ -1,7 +1,11 @@
-# Command: nmap -sC -sV
-# Command: nmap -sCV
+# Command: nmap
+# Command: nmap
+# -sCV
 # -T0 (paranoid) to -T5 (insane)
-# classic outputs
+# -p- : This flag scans for all TCP ports ranging from 0-65535
+# -sV : Attempts to determine the version of the service running on a port
+# --min-rate : This is used to specify the minimum number of packets that Nmap should send
+per second; it speeds up the scan as the number goes highe
 
 # SMB
 445/tcp  open  microsoft-ds Windows Server 2019 Standard 17763 microsoft-ds

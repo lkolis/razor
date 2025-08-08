@@ -1,0 +1,12 @@
+# Command: unzip
+unzip <file.zip> -d <destination_folder>
+
+# -P <password>
+unzip -P <password> <file.zip> -d <destination_folder>
+
+
+# Command: tar
+tar -xf <file.tar> -C <destination_folder>
+# x: extract
+# f: file > extract from this specific archive file
+

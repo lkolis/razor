@@ -1,3 +1,6 @@
+# Command: strings > extracts human-readable text from binary or non-text files
+strings <file>
+
 # copy from vim -> to outside
 # 1. Press v or V or Ctrl+V
 # 2. Select text

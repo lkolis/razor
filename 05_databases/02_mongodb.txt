@@ -1,0 +1,19 @@
+MongoDB is a NoSQL database. It doesn't use tables and rows like traditional relational databases. It uses collections and documents.
+
+
+# Helpful link
+https://blog.e-zest.com/basic-commands-for-mongodb
+
+######################## INSTALLATION #########################
+curl -O https://downloads.mongodb.com/compass/mongosh-2.3.2-linux-x64.tgz
+tar xvf mongosh-2.3.2-linux-x64.tgz
+cd mongosh-2.3.2-linux-x64/bin
+
+########################## RUN ##############################
+# Command: mongosh
+./mongosh mongodb://{target_IP}:27017
+
+# Command: show dbs; > list all databases
+# Command: show collections; > list all colections in a database
+# Command: db.<collection>.find();  > dumb the content of all the documents in <collection>
+

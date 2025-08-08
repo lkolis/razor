@@ -1,0 +1,6 @@
+# some wiki
+http://editor.htb:8080/xwiki/bin/view/Main/
+
+
+# a log-in form
+http://editor.htb:8080/xwiki/bin/login/XWiki/XWikiLogin?loginLink=1

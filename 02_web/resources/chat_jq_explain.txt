@@ -1,0 +1,3 @@
+Explanation:
+    .results[] — iterates over each object in the results array
+    .input.FUZZ — gets the FUZZ field from the nested input object

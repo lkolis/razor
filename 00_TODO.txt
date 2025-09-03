@@ -1,2 +1,5 @@
+there are also some videos here: HTB Watch List
+
+https://www.hackthebox.com/blog/learn-to-hack-beginners-bible
 ALL HTB FREE COURSES
 https://academy.hackthebox.com/catalogue

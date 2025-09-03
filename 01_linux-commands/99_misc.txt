@@ -1,3 +1,6 @@
+# Command: find file and it's path
+find "$(pwd)" -type f -name "php.ini" 2> /dev/null
+
 # Command: strings > extracts human-readable text from binary or non-text files
 strings <file>
 

@@ -1,0 +1,10 @@
+obfuscator.io
+
+# String Array Encoding: Base64 - to completely obfuscate the code
+
+###################### Other obfuscators ##################
+https://utf-8.jp/public/jjencode.html
+https://utf-8.jp/public/aaencode.html
+
+###################### Deobfuscators ##################
+https://matthewfl.com/unPacker.html

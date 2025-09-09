@@ -1,0 +1,25 @@
+# Command: base64 encoding
+echo "The thing I want to encode" | base64
+
+# Command: base64 decoding
+echo "The thing I want to decode" | base64 -d
+
+# Command: hex encoding
+echo "The thing I want to encode" | xxd -p
+
+# Command: hex decoding
+echo "The thing I want to decode" | xxd -p -r
+
+# Command: rot13 encoding
+# there is no Linux command for rot13
+# we easily create our own:
+echo https://www.hackthebox.eu/ | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+
+# Command: rot13 decoding
+# we easily create our own:
+echo uggcf://jjj.unpxgurobk.rh/ | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+
+# tr 'set-1' 'new-set-1'
+# e.g. 
+# 'A-Za-z' is like saying 'ABCDEF...WXYZabcdef...wxyz'
+

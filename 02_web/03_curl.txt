@@ -2,3 +2,5 @@
 # -i: show response headers & body
 # -v: show request & response headers & body
 # -Iv: show request & response headers
+# -X: POST -d "param1=sample" > POST request with data
+# -s: reduce cluttering the response with unnecessary data

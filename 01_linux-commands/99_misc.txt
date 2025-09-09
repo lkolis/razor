@@ -1,3 +1,6 @@
+# Command: tr -d > remove specific characters from string
+echo "asdj!_" | tr -d "!_" 
+
 # Command: find file and it's path
 find "$(pwd)" -type f -name "php.ini" 2> /dev/null
 

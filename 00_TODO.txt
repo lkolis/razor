@@ -1,3 +1,19 @@
+#################### 10 Cube Modules ########################3
+https://academy.hackthebox.com/module/details/24
+https://academy.hackthebox.com/module/details/39
+https://academy.hackthebox.com/module/details/108
+https://academy.hackthebox.com/module/details/195
+https://academy.hackthebox.com/module/details/230
+https://academy.hackthebox.com/module/details/257
+https://academy.hackthebox.com/module/details/289
+https://academy.hackthebox.com/module/details/290
+https://academy.hackthebox.com/module/details/293
+https://academy.hackthebox.com/module/details/292
+https://academy.hackthebox.com/module/details/295
+https://academy.hackthebox.com/module/details/296
+https://academy.hackthebox.com/module/41/section/443
+
+
 there are also some videos here: HTB Watch List
 
 https://www.hackthebox.com/blog/learn-to-hack-beginners-bible

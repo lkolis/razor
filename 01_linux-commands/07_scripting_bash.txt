@@ -1,0 +1,5 @@
+# Command: mv all that is not .txt to target_folder
+for file in $(ls --ignore="*.txt"); do
+  mv "$file" target_folder/
+done
+

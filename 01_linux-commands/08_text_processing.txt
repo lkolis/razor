@@ -1,3 +1,7 @@
+# Command: strings <file> > prints the printable characters of a file
+
+# Command: pdfinfo <file> > pdf info extractor
+
 # Command: grep
 cat /etc/passwd | grep "/bin/bash"
 

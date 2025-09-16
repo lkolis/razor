@@ -22,5 +22,10 @@ zfs_bmap <file.txt>
 # Command: export > export environment variables
 # Command: printenv > print a particular environment variable to the console
 # Command: source > execute commands stored in a file from within the current shell or refresh environment variables
+# Command: ss > (socket statistics) check which ports are listenning locally on a given machine
+ss- tln
+# -l: display only listening sockets
+# -t: display tcp sockets
+# -n: do not try to resolve service names
 
 

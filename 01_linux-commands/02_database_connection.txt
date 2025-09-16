@@ -1,0 +1,11 @@
+# Command: psql > PostgreSQL
+psql -U <username> -h <host> -p <port>
+psql -U christine -h localhost -p 1234
+
+# after you enter, use:
+# \h for help
+# \l for listing all databases
+# \c <database_name> : connect to database
+# \dt : list all the contents of the database
+# dump contents of table (here: flag)
+SELECT * FROM flag;

@@ -1,0 +1,27 @@
+# Command: openssl > encrypt
+echo "your secret message" | openssl enc -aes-256-cbc -a -salt -pass pass:yourpassword
+
+# Command: openssl  > decrypt
+echo "encrypted_text_here" | openssl enc -aes-256-cbc -a -d -salt -pass pass:yourpassword
+
+# -aes-256-cbc: encryption algorithm
+# -a: base64 encode the output
+# -salt: adds randomness
+# -pass pass:yourpassword: sets the password
+
+# Command: openssl > encrypt /etc/passwd
+openssl enc -aes256 -iter 100000 -pbkdf2 -in /etc/passwd -out passwd.enc
+
+# -d: to decrypt
+
+# Command: gpg (GNU Privacy Guard) > encrypt
+gpg --symmetric --cipher-algo AES256 yourfile.txt
+
+# will prompt for password
+
+# Command: gpg (GNU Privacy Guard) > decrypt
+gpg -d encrypted_file.gpg
+
+# gpg-agent caches the passphrase. If you want to kill it:
+# gpgconf --kill gpg-agent
+

@@ -1,0 +1,15 @@
+# Command: psql > connect to postgresql
+psql -h <ip> -p <port_num> -d <database_name>
+
+# -h: host
+# -p: port==5432 usually for postgresql service
+
+# Command: ssh 
+ssh <username>@<host>
+
+# -L: local port forwarding
+ssh -L 1234:localhost:22 user@remote.example.com
+# it will listen to incoming connections on the local port 1234
+ssh -L 1234:localhost:5432 christine@{target_IP}
+
+https://iximiuz.com/en/posts/ssh-tunnels/

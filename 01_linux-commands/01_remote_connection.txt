@@ -12,4 +12,12 @@ ssh -L 1234:localhost:22 user@remote.example.com
 # it will listen to incoming connections on the local port 1234
 ssh -L 1234:localhost:5432 christine@{target_IP}
 
+# -D: dynamic port forwarding
+ssh -D 1234 <username>@<host>
+
+# -f -N: so we don't actuallly ssh into the box and can instead continue using that shell locally
+# edit /etc/proxychains.conf
+# strict_chain: not commented out
+# dynaminc_chain and random_chain: commented out
+socks5 127.0.0.1 1234
 https://iximiuz.com/en/posts/ssh-tunnels/

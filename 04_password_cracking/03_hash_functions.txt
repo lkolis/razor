@@ -1,0 +1,5 @@
+# Command md5sum
+echo -n Soc06! | md5sum
+
+# Command sha256sum
+echo -n Soc06! | sha256sum

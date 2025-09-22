@@ -1,3 +1,23 @@
+###########################################################
+######################### Single mode #####################
+###########################################################
+# Command: john --single <NA>a
+
+
+###########################################################
+######################### Wordlist mode ###################
+###########################################################
+# Command: john --wordlist=<wordlist_file> <hash_file>
+
+
+###########################################################
+######################### Incremental mode ################
+###########################################################
+# uses Markov chains. This is the default mode for JtR
+# defines character sets and password lengths in john.conf
+# Command: john --incremental <hash_file>
+
+
 # zip2john: convert zip into hash
 zip2john backup.zip > hashes
 

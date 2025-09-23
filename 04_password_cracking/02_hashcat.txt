@@ -27,10 +27,16 @@ hashcat -a 3 -m 0 1e293d6912d074c0fd15844d803400dd '?u?l?l?l?l?d?s'
 
 
 
-########################## NA #############################
-
+########################## Rule-based #############################
 # use custom.rule in each word from password.list under /playground
 hashcat --force password.list -r custom.rule --stdout | sort -u > mut_password.list
+
+########################## Custom (cewl)  #################
+cewl https://www.inlanefreight.com -d 4 -m 6 --lowercase -w inlane.wordlist
+# -d > depth to spider
+# -m > minimum length of the word
+# --lowercase > the storage of the found words in lowercase
+# -w > the file to store the results
 
 
 ###########################################################

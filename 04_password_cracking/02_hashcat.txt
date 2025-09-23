@@ -1,3 +1,44 @@
+###########################################################
+#################### Cracking files #######################
+###########################################################
+hashcat -a 0 -m 0 <hashes> [wordlist, rule, mask, ...]
+
+# -a > specify attack mode
+# -m > specify hash type
+# <hashes> > hash string or a file with one or more password hashes of the same type
+
+hashcat --help | grep "Raw Hash" # lists hash types and their corresponding IDs
+# rules are under /usr/share/hashcat/rules
+
+###########################################################
+#################### Dictionary attack ####################
+###########################################################
+hashcat -a 0 -m 0 1b0556a75770563578569ae21392630c /usr/share/wordlists/rockyou.txt
+
+-r > apply a rule
+hashcat -a 0 -m 0 1b0556a75770563578569ae21392630c /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule
+
+
+###########################################################
+#################### Mask attack ##########################
+###########################################################
+# starts with uppercase, then four lowercase letters, a digit, a symbol
+hashcat -a 3 -m 0 1e293d6912d074c0fd15844d803400dd '?u?l?l?l?l?d?s'
+
+
+
+########################## NA #############################
+
+# use custom.rule in each word from password.list under /playground
+hashcat --force password.list -r custom.rule --stdout | sort -u > mut_password.list
+
+
+###########################################################
+#################### Combinator attack ####################
+###########################################################
+###########################################################
+#################### Association attack ###################
+###########################################################
 # analyze hash to find out it's type
 hashid <HASH>
 

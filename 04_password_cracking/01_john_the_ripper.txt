@@ -17,8 +17,26 @@
 # defines character sets and password lengths in john.conf
 # Command: john --incremental <hash_file>
 
+# --format: instruct JtR which format target hashes have
+# for formats check: https://academy.hackthebox.com/module/147/section/1985
 
-# zip2john: convert zip into hash
+###########################################################
+######################### Cracking files ##################
+###########################################################
+# Command: <tool> <file_to_crack> file.hash
+
+# <tool>
+locate *2john*
+pdf2john
+ssh2john
+mscash2john
+keychain2john
+rar2john
+pfx2john
+zip2john
+office2john
+
+zip2john: convert zip into hash
 zip2john backup.zip > hashes
 
 john -wordlist=/usr/share/wordlists/rockyou.txt hashes

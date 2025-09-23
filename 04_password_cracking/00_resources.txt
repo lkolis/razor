@@ -1,6 +1,13 @@
+https://hashcat.net/wiki/doku.php?id=example_hashes
 https://openwall.info/wiki/john/sample-hashes
 https://pentestmonkey.net/cheat-sheet/john-the-ripper-hash-formats
+Hashcat documentation -> https://hashcat.net/wiki/doku.php?id=rule_based_attack
+Generating wordlists using CeWL -> https://github.com/digininja/CeWL
 
-# Command: hashid -j <hash>
+# Command: hashid <hash>
+# Command: hashid -m <hash> # identify the hashcat hash type 
+# Command: hashid -j <hash> # identify the JtR hash type
+# options add in the output a bracket with details e.g. [Hashcat Mode: 2600] or [JtR Format: raw-md5] 
 
+-----------------------------------------------------------
 Check for breach: https://haveibeenpwned.com/

@@ -1,13 +1,17 @@
 https://hashcat.net/wiki/doku.php?id=example_hashes
 https://openwall.info/wiki/john/sample-hashes
 https://pentestmonkey.net/cheat-sheet/john-the-ripper-hash-formats
-Hashcat documentation -> https://hashcat.net/wiki/doku.php?id=rule_based_attack
+Hashcat documentation for rule-based attack -> https://hashcat.net/wiki/doku.php?id=rule_based_attack
+Hashcat cheatsheet -> https://brandonrussell.io/OSCP-Notes/My%20Hashcat%20Cheatsheet.html
 Generating wordlists using CeWL -> https://github.com/digininja/CeWL
+This means: scan potential words from a website and save them in a separate list
 
 # Command: hashid <hash>
 # Command: hashid -m <hash> # identify the hashcat hash type 
 # Command: hashid -j <hash> # identify the JtR hash type
 # options add in the output a bracket with details e.g. [Hashcat Mode: 2600] or [JtR Format: raw-md5] 
 
------------------------------------------------------------
+-------------------------- To read -------------------------------------
 Check for breach: https://haveibeenpwned.com/
+Wp-engine article for most used passwords: https://wpengine.com/resources/passwords-unmasked-infographic/#Ill_Add_a_Number_to_Make_it_More_Secure
+

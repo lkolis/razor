@@ -1,1 +1,26 @@
 git clone https://github.com/lkolis/razor.git
+
+# Then generate an SSH key
+ssh-keygen -t ed25519 -C "loliskolis45@gmail.com"
+
+# or if system doesn't support ed25519, use:
+ssh-keygen -t rsa -b 4096 -C "loliskolis45@gmail.com"\
+
+# press enter
+# add your passphrase
+# Copy the public key
+cat ~/.ssh/id_ed25519.pub
+
+# test the connection
+ssh -T git@github.com   # or git@gitlab.com / git@bitbucket.org
+
+# Change to SSH instead of HTTPS
+git remote set-url origin git@github.com:username/repo-name.git
+
+# Done!
+
+# Typical flow:
+git add .
+git commit -m "A message for my future self!"
+git push origin main
+

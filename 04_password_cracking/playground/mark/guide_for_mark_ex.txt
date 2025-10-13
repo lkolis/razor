@@ -1,2 +1,12 @@
+Check this out:
+  https://medium.com/@ihouelecaurcy/password-attacks-writing-custom-wordlists-and-rules-hack-the-box-d3d5bb144c25
+
 hashcat -a 6 -m 0 mut_password.list 97268a8ae45ac7d15c3cea4ce6ea550b ?u?l?l?l?l?l?l?l?l?l?d?s
 hashcat -a 6 -m 0 mark.hash mut_password.list ?u?l?l?l?l?l?l?l?l?l?d?s
+Custom charsets can be defined with the -1, -2, -3, and -4 arguments, then referred to with ?1, ?2, ?3, and ?4.
+
+# You will do that but not with rockyou -> with your custom wordlist
+hashcat -a 0 -m 0 1b0556a75770563578569ae21392630c /usr/share/wordlists/rockyou.txt
+
+# or
+hashcat -a 6 -m 0 mark.hash mut_password.list ?u?l?d?s

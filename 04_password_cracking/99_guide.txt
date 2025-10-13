@@ -1,3 +1,8 @@
 1) Use cewl to generate a custom password.list (OSINT)
+  We have Max's wordlist on the exercise
 2) Use a hashcat to generate a custom mutated password list (best64.rule or custom.rule) /usr/share/hashcat/rules/best64.rule
+  We did it: we have mut.list
 3) Apply the mask attact using mut_password.list 
+  And now we use the mut.list with the mask (mask is the 12digit password format that we know from the exercise
+    6 = Hybrid Wordlist + Mask
+

@@ -1,0 +1,16 @@
+echo $SHELL
+
+# if shell == bash then:
+vim ~/.bashrc
+
+# at the end of file add:
+export PATH="$PATH:/<path_to_executable>"
+
+where <path_to_executable> is the path to the directory of the executable
+
+# apply changes:
+source ~/.bashrc
+
+
+
+

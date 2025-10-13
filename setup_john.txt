@@ -2,11 +2,19 @@
 sudo apt update
 sudo apt install build-essential git libssl-dev zlib1g-dev yasm pkg-config
 
-# Clonde the jumbo version of john
+# Clonde the jumbo version of john (you should be in your home directory e.g. /home/user or /home/vic 
+# or whatever the $HOME variable is saying
 git clone https://github.com/openwall/john.git
 cd john/src
 
 # Do what the installation says to do: https://github.com/openwall/john/blob/bleeding-jumbo/doc/INSTALL
-./configure && make
+# to suppress normal output and just print warnings and errors and use 4 processes
+./configure && make -sj4
 
-# john
+# then make john alias so you can run it from anywhere
+# add this line to the end of ~/.bashrc
+
+alias john="$HOME/john/run/john"
+source ~/.bashrc
+
+# john is system wide installed

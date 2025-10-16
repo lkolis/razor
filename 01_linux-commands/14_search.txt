@@ -1,3 +1,11 @@
 # Command: find
 # search files that belong to user group 'bugtracker'
 find / -group bugtracker 2>/dev/null
+
+# Command: grep
+# -r: Recursively search directories
+# -n: Show line numbers in the output
+# -E: Use extended regular expressions
+# '^\-{5}BEGIN [A-Z0-9]+ PRIVATE KEY\-{5}$': The regex pattern: to search for RSA keys on your system
+
+grep -rnE '^\-{5}BEGIN [A-Z0-9]+ PRIVATE KEY\-{5}$' /* 2>/dev/null

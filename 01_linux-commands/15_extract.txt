@@ -10,3 +10,6 @@ tar -xf <file.tar> -C <destination_folder>
 # x: extract
 # f: file > extract from this specific archive file
 
+# Command: gunzip
+gunzip filename.gz
+

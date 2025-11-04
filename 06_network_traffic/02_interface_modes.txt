@@ -1,0 +1,38 @@
+----------------------------------------------------------------------
+                        Interface modes
+----------------------------------------------------------------------
+# check driver capabilities for our interface\
+iw list 
+
+# Managed mode
+  sudo ifconfig wlan0 down
+  sudo iwconfig wlan0 mode managed
+  sudo iwconfig wlan0 essid HTB-Wifi
+  sudo iwconfig
+
+# Ad-hoc mode
+  sudo iwconfig wlan0 mode ad-hoc
+  sudo iwconfig wlan0 essid HTB-Mesh
+  sudo iwconfig
+
+# Master mode
+  vim open.conf
+    interface=wlan0
+    driver=nl80211
+    ssid=HTB-Hello-World
+    channel=2
+    hw_mode=g
+  sudo hostapd open.conf
+
+# Mesh mode 
+  sudo iw dev wlan0 set type mesh
+  sudo iwconfig
+
+
+# Monitor mode (also known as promiscuous mode)
+  # the network interface can capture all wireless traffic within its range, regardless of the intended recipient
+  sudo ifconfig wlan0 down
+  sudo iw wlan0 set monitor control
+  sudo ifconfig wlan0 up
+  iwconfig
+

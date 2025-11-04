@@ -1,0 +1,39 @@
+
+
+
+#  
+iwconfig
+
+#
+iw reg get
+
+# change region
+sudo iw reg set US
+
+# bring our interface down
+sudo ifconfig wlan0 down
+
+# change txpower
+sudo iwconfig wlan0 txpower 30
+
+# bring interface up
+sudo ifconfig wlan0 up
+
+# checking driver capabilities
+iw list
+
+# scan available WiFi networks
+iwlist wlan0 scan | grep 'Cell\|Quality\|ESSID\|IEEE'
+
+# changing channel
+sudo ifconfig wlan0 down
+sudo iwconfig wlan0 channel 64
+sudo ifconfig wlan0 up
+iwlist wlan0 channel
+
+# changing frequency (same - just different method)
+sudo ifconfig wlan0 down
+sudo iwconfig wlan0 freq "5.52G"
+sudo ifconfig wlan0 up
+
+

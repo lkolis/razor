@@ -1,7 +1,7 @@
 ----------------------------------------------------------------------
                         Interface modes
 ----------------------------------------------------------------------
-# check driver capabilities for our interface\
+# check driver capabilities for our interface
 iw list 
 
 # Managed mode

@@ -65,8 +65,14 @@ sudo airgraph-ng -i HTB-01.csv -g CPG -o HTB_CPG.png
 # to list all the features
 aireplay-ng
 
-#
+# set wlan0mon to channel 11
 sudo iw dev wlan0mon set channel 11
+
+# testing for packet injection
+sudo aireplay-ng --test wlan0mon
+
+# check traffic
+sudo airodump-ng wlan0mon
 
 
 

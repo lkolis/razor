@@ -81,5 +81,52 @@ sudo airodump-ng wlan0mon
 sudo aireplay-ng -0 5 -a 00:14:6C:7A:41:81 -c 00:0F:B5:32:31:31 wlan0mon
 
 
+--------------------------------------------------
+                airdecap-ng
+--------------------------------------------------
+
+# removing wireless headers from unencrypted .cap
+airdecap-ng -b 00:14:6C:7A:41:81 opencapture.cap
+
+# decrypting WEP-encrypted captures
+sudo airdecap-ng -w <WEP-key> vi-01.cap
+
+# decrypting WPA-encrypted captures
+sudo airdecap-ng -p <passphrase> <capture-file> -e <essid>
+sudo airdecap-ng -p 'abdefg' HTB-01.cap -e "Wireless Lab"
+
+--------------------------------------------------
+                aircrack-ng
+--------------------------------------------------
+
+# host benchmark
+aircrack-ng -S
+
+## 1628.101 k/s : means that our CPU can crack approx. 1628.101 passphrases/sec
+
+--------------------
+       WEP
+--------------------
+
+# WEP could be cracked once a sufficient number of encrypted packets have been captured using airodump-ng --ivs
+# which saves only the captured IVs (Initialization Vectors)
+
+# once enoughs IVs are captured, wen utilize the -K option in aircrack-ng, which invokes the Korek WEP cracking 
+# method to crack the WEP key
+aircrack-ng -K file_name.ivs
+
+--------------------
+       WPA
+--------------------
+
+# ?
+aircrack-ng vi.pcap -w /opt/wordlist.txt
+
+
+
+
+
+
+
 
 

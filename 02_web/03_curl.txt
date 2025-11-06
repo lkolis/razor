@@ -4,3 +4,15 @@
 # -Iv: show request & response headers
 # -X: POST -d "param1=sample" > POST request with data
 # -s: reduce cluttering the response with unnecessary data
+
+--------------------------------
+        POST
+--------------------------------
+
+
+
+curl -X POST http://83.136.254.84:49603/xmlrpc.php \
+ -H "Content-Type: text/xml" \
+ -H "Content-Length: 135" \
+ -d '<?xml version="1.0"?><methodCall><methodName>system.listMethods</methodName><params><param><value><string>Hello</string></value></param></params></methodCall>'
+

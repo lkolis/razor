@@ -9,8 +9,8 @@ sudo iwlist wlan0 s | grep 'Cell\|Quality\|ESSID\|IEEE'
 ----------------
       WEP
 ----------------
-
-wep.conf {
+vim wep.conf
+network={
     ssid="HackTheBox"
     key_mgmt=NONE
     wep_key0=3C1C3A3BAB
@@ -24,9 +24,11 @@ ifconfig wlan0 # test
 ----------------
       WPA
 ----------------
-wpa.conf {
+vim wpa.conf 
+
+network={
     ssid="HackMe"
-    psk="password123"
+    psk="Password123!!!!!!"
     # key_mgmt=SAE > for WPA3
     # SAE = Simultaneous Authentication of Equals - a key componet of WPA3 security
 }

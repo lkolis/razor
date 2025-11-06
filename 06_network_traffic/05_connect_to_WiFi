@@ -19,7 +19,8 @@ network={
 
 sudo wpa_supplicant -c wep.conf -i wlan0
 sudo dhclient wlan0 # to obtain IP
-ifconfig wlan0 # test
+iw wlan0 link       # Check connected SSID
+ifconfig wlan0      # Check IP
 
 ----------------
       WPA

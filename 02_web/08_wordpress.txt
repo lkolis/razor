@@ -39,7 +39,24 @@ curl -s -I http://blog.inlanefreight.com/?author=1
                        Login
 ----------------------------------------------------------------------
 
+# HTBs
+curl -X POST -d "<methodCall><methodName>wp.getUsersBlogs</methodName><params><param><value>admin</value></param><param><value>CORRECT-PASSWORD</value></param></params></methodCall>" http://blog.inlanefreight.com/xmlrpc.php
 
+# copilots
+curl -X POST http://83.136.254.84:49603/xmlrpc.php \
+ -H "Content-Type: text/xml" \
+ -H "Content-Length: 135" \
+ -d '<?xml version="1.0"?><methodCall><methodName>system.listMethods</methodName><params><param><value><string>Hello</string></value></param></params></methodCall>'
+
+
+----------------------------------------------------------------------
+                       wpscan
+----------------------------------------------------------------------
+
+# installation
+gem install wpscan
+
+# wpscan --hh
 
 
 

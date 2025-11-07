@@ -92,7 +92,7 @@ airdecap-ng -b 00:14:6C:7A:41:81 opencapture.cap
 sudo airdecap-ng -w <WEP-key> vi-01.cap
 
 # decrypting WPA-encrypted captures
-sudo airdecap-ng -p <passphrase> <capture-file> -e <essid>
+# sudo airdecap-ng -p <passphrase> <capture-file> -e <essid>
 sudo airdecap-ng -p 'abdefg' HTB-01.cap -e "Wireless Lab"
 
 --------------------------------------------------

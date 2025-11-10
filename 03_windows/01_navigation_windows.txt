@@ -1,3 +1,7 @@
+----------------------------------------------------------
+                      Navigation
+----------------------------------------------------------
+
 # clear the screen
 cls
 
@@ -25,7 +29,121 @@ tree
 # ls -R
 tree /F
 
-# 
+# mkdir
+md
+mkdir
+
+# remove directories
+rd /S # if the directory is not empty, you have to use the switch /S to delete the directory and its contents
+rmdir
+
+
+# mv
+move <source> <destination>
+
+# copy 
+# /E > include empty ones
+# /K > preserve the files attributes: e.g. read-only
+xcopy C:\Users\htb\Documents\example C:\Users\htb\Desktop\ /E
+
+# copy
+robocopy C:\Users\htb\Desktop C:\Users\htb\Documents\
+
+# view contents of a file
+# /S > crunch empty lines
+more <filename>
+
+# openfiles, we can see what file on our local pc or a remote host has open and from which user
+
+# view contents of a file
+type <filename>
+
+# append to the end of file using type
+type file1 >> file2
+
+# echo
+echo Check out this text > demo.txt
+
+# touch
+fsutil file createNew sample.txt 222
+
+# rename a file
+ren <old_filename> <new_filename>
+rename <old_filename> <new_filename>
+
+# grep "see" inside test.txt
+find /i "see" < test.txt 
+
+# ip a | grep "IPV4"
+ipconfig /all | find /i "IPV4"
+
+# run A then B
+&
+
+# run A, and if it succeeds, run B
+&&
+|| # using pipes
+
+# delete
+del
+erase
+
+# delete read-only file
+del /A:R <read_only_file>
+
+# delete all read-only files
+dir /A:R
+del /A:R *
+
+# delete hidden files
+dir /A:H
+DEL /A:H *
+
+# copy with validation
+copy calc.exe C:\Users\student\Downloads\copied-calc.exe /V
+
+
+----------------------------------------------------------
+                      System information
+----------------------------------------------------------
+
+systeminfo
+hostname
+ver
+ipconfig
+arp /a
+whoami
+whoami /priv
+whoami /groups
+net user
+net group
+net share
+net view
+
+
+
+
+----------------------------------------------------------
+                    Interesting files
+----------------------------------------------------------
+
+# Global directory containing temporary system files accessible to all users on the system
+C:\Windows\Temp 
+
+# Local directory containing a user's temporary files accessible only to the user account that it is attached to
+# Useful when the attacker gains control of a local/domain joined user account
+C:\Users\<user>\AppData\Local\Temp
+
+# Publicly accessible directory allowing any interactive logon account full access 
+# to read, write, modify, execute, etc., files and subfolders within the directory
+C:\Users\Public
+
+# All 64-bit apps
+C:\Program Files
+
+# # All 32-bit apps
+C:\Program Files (x86)
+
 
 
 

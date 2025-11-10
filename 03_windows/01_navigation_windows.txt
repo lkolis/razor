@@ -1,0 +1,31 @@
+# clear the screen
+cls
+
+# see history
+doskey /history
+
+# ⇨ Types the previous command to prompt one character at a time.
+# F3	Will retype the entire previous entry to our prompt.
+# F5	Pressing F5 multiple times will allow you to cycle through previous commands.
+# F7	Opens an interactive list of previous commands.
+# F9	Enters a command to our prompt based on the number specified. The number corresponds to the commands place in our history.
+
+# pwd
+cd
+
+# The "C:\" designation was used commonly as typically "A:\" and "B:\" 
+# were recognized as floppy drives, whereas "C:\" was recognized as the first internal hard drive of the machine.
+
+# ls
+dir
+
+# list directories in a tree style format
+tree
+
+# ls -R
+tree /F
+
+# 
+
+
+

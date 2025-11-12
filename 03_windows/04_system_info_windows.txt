@@ -1,0 +1,93 @@
+-------------------------------------------------------
+
+-------------------------------------------------------
+
+# get general system information - and then look for CVE
+systeminfo
+
+# get simpler/basic information
+hostname
+
+# get current OS version
+ver
+
+# basic network information
+ipconfig
+ipconfig /all
+arp /a
+
+# whoami
+whoami
+
+# checking out privileges
+whoami /priv
+
+# checking out our groups
+whoami /groups
+
+# checking out everything
+whoami /all
+
+-------------------------------------------------------
+
+-------------------------------------------------------
+
+# print all users on host
+net user
+
+# print groups 
+net localgroup
+net group
+
+# print shares
+net share
+
+# print shares, printers and more
+net view
+
+-------------------------------------------------------
+                Search for files
+-------------------------------------------------------
+
+# search for files
+where calc.exe
+
+# for stuff that are not on our environment variable path we use the /R switch to provide the path
+where /R C:\Users\student bio.txt
+
+# search for specifil file types
+where /R C:\Users\student *.csv
+
+-------------------------------------------------------
+      Search for strings inside files (find)
+-------------------------------------------------------
+
+# basic string search
+find "some string to search" "C:\Users\student\some-filename.txt"
+
+# /V: NOT 
+# /N: display line numbers
+# /I: ignore case sensitivity
+find /N /I /V "IP address" example.txt
+
+
+
+-------------------------------------------------------
+    Search for strings inside files (findstr)
+-------------------------------------------------------
+
+# similar to grep
+
+-------------------------------------------------------
+    Evaluating and sorting files (comp, fc, sort)
+-------------------------------------------------------
+# comp compares same size files
+# in decimal format, hence: displays the ASCII code
+comp filename-1 filename-2
+
+# in ASCII format
+comp filename-1 filename-2 /A 
+
+# 
+
+

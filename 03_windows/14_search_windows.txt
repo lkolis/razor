@@ -1,0 +1,47 @@
+------------------------------------------------------------
+                    Search for files
+------------------------------------------------------------
+
+# search for specific file that belongs to the environment variable
+where calc.exe
+
+# give explicit path and search recursively
+where /R C:\Users\student\ bio.txt
+
+# same but searching for .csv files
+where /R C:\Users\student *.csv
+
+------------------------------------------------------------
+                    Search within files
+------------------------------------------------------------
+
+# 
+find "password" "C:\Users\student\not-passwords.txt"
+
+# /V : not
+# /N : display line numbers
+# /I : ignore case sensitivity
+find /N /I /V "IP Address" example.txt 
+
+
+# findstr (like grep)
+
+
+# compare files
+# /A : display in ASCII format
+# /L : provide line numbers
+comp .\file1 .\file2 /A
+
+# fc 
+# /N : provide line numbers
+fc passwords.txt modded.txt /N
+
+# sort first to help us with compare
+sort.exe .\file-1.md /O .\sort-1.md
+
+# keep only unique entries
+sort.exe .\sort-1.md /unique
+
+# 
+
+

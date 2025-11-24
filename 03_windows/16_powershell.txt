@@ -18,7 +18,14 @@ Compare-Object	diff / compare		Compare two or more objects against each other. T
 Get-Location
 tree /F
 
+------------------------------------------------------------
+        Search (grep-like but actually object-like)
+------------------------------------------------------------
 
+Get-ADUser -Filter * | Where-Object { $_.Name -like "*John*" }
+
+# get-services that have the 'vm' string on the Name attribute and sort in descending order
+Get-Service | Where-Object {$_.Name -like "*vm*"} | Sort-Object Name 
 
 
 # Command: Get-Alias

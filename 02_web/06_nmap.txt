@@ -1,5 +1,55 @@
-# Command: nmap
-# Command: nmap
+---------------------------
+         TODO
+---------------------------
+# if sudo is not used, the required sockets cannot be opened due to the 
+required privileges. This is supposes to be clear if you use --packet-trace,
+in the way that it produces different packets.
+# Haven't seen it though. Check it out!
+
+------------------------------------------------------------
+                  Host discovery
+------------------------------------------------------------
+
+# -sn : disable port scanning
+# -iL hosts.lst : read IPs from hosts.lst
+# -oA tnet : write output to tnet.{gnmap, nmap, xml}
+# --stats-every=5s : show progress every 5 secons
+# or just press the Spacebar whenever you want to get a status update
+
+# scan specific IPs
+sudo nmap -sn -oA tnet 10.129.2.18 10.129.2.19 10.129.2.20| grep for | cut -d" " -f5
+
+# scan range of IPs
+sudo nmap -sn -oA tnet 10.129.2.18-20 | grep for | cut -d " " -f5
+
+# -PE: sends explicitly ICMP echo requests (ping echo requests) 
+# --packet-trace : shows all packets sent and received
+# --reason: to tell why host is alive
+# --disable-arp-ping: disasbles ARP ping
+# -n : disables DNS resolution
+# grep S : filter lines containing TCP SYN packets
+# grep S : filter lines containing TCP SYN packets
+# grep RA : filter lines containing TCP RST & ACK packets
+------------------------------------------------------------
+                  Port scanning
+------------------------------------------------------------
+
+# -sS : SYN scan
+# -sT : TCP scan
+# -sT : TCP Connect Scan - uses the TCP 3-way handshake
+# -sU: UDP scan
+
+# -p 22,25,80,139 : specific ports
+# -p 22-445 : by range
+# --top-ports=10 : by top ports
+# -p- : all ports
+# -F : fast port scan on top 100 ports
+
+# -sV : service scan
+# -v : shows the open ports directly during detection
+
+
+
 # -sCV
 # -T0 (paranoid) to -T5 (insane)
 # -p- : This flag scans for all TCP ports ranging from 0-65535
@@ -7,6 +57,40 @@
 # --min-rate : This is used to specify the minimum number of packets that Nmap should send
 per second; it speeds up the scan as the number goes highe
 
+
+------------------------------------------------------------
+                  Saving output
+------------------------------------------------------------
+
+# -oN : normal output .nmap
+# -oG : grepable output .gnmap
+# -oX : XML output .xml
+# -oA : in all formats
+
+---------------------------
+    Make .html reports
+---------------------------
+xsltproc file.xml -o file.html
+
+
+------------------------------------------------------------
+                  Service enumeration
+------------------------------------------------------------
+# -sV 
+
+
+------------------------------------------------------------
+                  NSE
+------------------------------------------------------------
+
+# -sC : default scripts
+
+
+
+
+------------------------------------------------------------
+                   NEED TO BE MOVED
+------------------------------------------------------------
 # SMB
 445/tcp  open  microsoft-ds Windows Server 2019 Standard 17763 microsoft-ds
 # in order to enumarate the SMB share we use smbclient

@@ -1,6 +1,8 @@
 # Like an online version of the man pages
-# https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands
-# https://ss64.com/nt/
+https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands
+
+# for anything command-line related, e.g.: cmd, PowerShell, Bash etc.
+https://ss64.com/nt/
 
 # PowerShell modules
 https://www.powershellgallery.com/

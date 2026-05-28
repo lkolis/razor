@@ -8,6 +8,10 @@ help <commmand>
 # for the others
 <command> /?
 
+# redirect command output to Windows clipboad
+<command> | clip
+clip < <filename>
+
 ----------------------------------------------------------
                       Navigation
 ----------------------------------------------------------

@@ -5,6 +5,9 @@
 # clear the screen
 cls
 
+# pwd
+cd
+
 # see history
 doskey /history
 
@@ -119,6 +122,9 @@ net user
 net group
 net share
 net view
+
+# useful to get the time, hence the time-zone of the machine, hence the location
+time
 
 
 

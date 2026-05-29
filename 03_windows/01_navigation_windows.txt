@@ -43,7 +43,7 @@ dir
 # list directories in a tree style format
 tree
 
-# ls -R
+# ls -R (list directories and files in a tree style format)
 tree /F
 
 # mkdir

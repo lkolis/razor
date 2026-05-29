@@ -1,1 +1,27 @@
+----------------------------------------------------------
+                       Remove
+----------------------------------------------------------
+# remove directory
+rd /S
+
+
+----------------------------------------------------------
+                        Copy
+----------------------------------------------------------
+
+# copy
+xcopy <source> <destination>
+
+# copy also empty directories
+xcopy <source> <destination> /E
+
+# to retain the file's attributes (such as read-only or hidden)
+xcopy <source> <destination> /K
+
+# From a hacker's perspective, xcopy can be extremely helpful. If we wish to move a file, even a system file, or something locked, xcopy can do this without adding other tools to the host. As a defender, this is a great way to grab a copy of a file and retain the same state for analysis. For example, you wish to grab a read-only file that was transferred in from a CD or flash drive, and you now suspect it of performing suspicious actions.
+
+
+----------------------------------------------------------
+                        View
+----------------------------------------------------------
 
